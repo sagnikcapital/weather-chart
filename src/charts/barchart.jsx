@@ -22,11 +22,11 @@ ChartJS.register(
 
 const BarChart = () => {
   const data = {
-    labels: ['Humidity', 'Rainy', 'Temperature', 'Mist', 'Feel'],
+    labels: ['Humidity', 'Rainy', 'Temperature', 'Mist', 'Cloud'],
     datasets: [
       {
         label: 'Weather Stat',
-        data: [12, 19, 3, 5, 2],
+        data: [12, 19, 3, 5, 16],
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
