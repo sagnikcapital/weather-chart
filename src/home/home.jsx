@@ -6,6 +6,7 @@ import './home.css';
 
 function Home(){
   const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [currentDate, setCurrentDate] = useState(new Date());
   useEffect(() => {
     console.log('this');
     if (navigator.geolocation) {
@@ -26,7 +27,14 @@ function Home(){
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
+
+    const timer = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 86400000); // 86400000 ms = 24 hours
+
+    return () => clearInterval(timer);
   }, []);
+  
   return(
     <div className="App container">
       <h1 className="text-center my-4"></h1>
@@ -34,7 +42,7 @@ function Home(){
         <div className="col-md-6">
           <div className="card mb-4 shadow-sm">
             <div className="card-header">
-              <h5 className="card-title">Weather Chart</h5>
+              <h5 className="card-title">Weather Chart of {currentDate.toDateString()}</h5>
             </div>
             <div className="card-body">
               <BarChart />
