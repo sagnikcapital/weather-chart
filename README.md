@@ -18,3 +18,6 @@ $ npm start
 
 ### React Chart JS
 > Refer: https://react-chartjs-2.js.org/docs/migration-to-v4
+
+### React Bootstrap
+> Refer: https://react-bootstrap.netlify.app/docs/getting-started/introduction 
