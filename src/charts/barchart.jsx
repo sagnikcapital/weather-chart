@@ -21,12 +21,17 @@ ChartJS.register(
 
 
 const BarChart = () => {
+  const humidity = 12;
+  const temperature = 19;
+  const rainy = 5;
+  const mist = 4;
+  const cloud = 16;
   const data = {
     labels: ['Humidity', 'Rainy', 'Temperature', 'Mist', 'Cloud'],
     datasets: [
       {
         label: 'Weather Stat',
-        data: [12, 19, 3, 5, 16],
+        data: [humidity, temperature, rainy, mist, cloud],
         backgroundColor: [
           'rgba(75, 192, 192, 0.6)',
           'rgba(255, 99, 132, 0.6)',
