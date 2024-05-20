@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -26,6 +26,8 @@ const BarChart = () => {
   const rainy = 5;
   const mist = 4;
   const cloud = 16;
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setlongitude] = useState('');
   const data = {
     labels: ['Humidity', 'Rainy', 'Temperature', 'Mist', 'Cloud'],
     datasets: [
