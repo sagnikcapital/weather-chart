@@ -21,3 +21,60 @@ $ npm start
 
 ### React Bootstrap
 > Refer: https://react-bootstrap.netlify.app/docs/getting-started/introduction 
+
+### Open weather API
+> Refer: https://openweathermap.org/api
+
+### `Useeffects` Lifecycle hook
+```js
+const { useState, useEffect } = React;
+
+const ForExample = () => {
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+
+  //On load or on mount 
+  useEffect(
+    () => {
+      console.log("effect");
+    },
+    [username]
+  );
+
+  //On destroy DOM
+  useEffect(() => {
+    return () => {
+      console.log("cleaned up");
+    };
+  }, []);
+
+  const handleName = e => {
+    const { value } = e.target;
+
+    setName(value);
+  };
+
+  const handleUsername = e => {
+    const { value } = e.target;
+
+    setUsername(value);
+  };
+
+  return (
+    <div>
+      <div>
+        <input value={name} onChange={handleName} />
+        <input value={username} onChange={handleUsername} />
+      </div>
+      <div>
+        <div>
+          <span>{name}</span>
+        </div>
+        <div>
+          <span>{username}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+``` 
