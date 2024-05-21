@@ -20,20 +20,20 @@ ChartJS.register(
 );
 
 
-const BarChart = () => {
+const BarChart = ({latitude, longitude }) => {
   const humidity = 12;
   const temperature = 19;
   const rainy = 5;
   const mist = 4;
   const cloud = 16;
-  const [latitude, setLatitude] = useState('');
-  const [longitude, setlongitude] = useState('');
-  const data = {
-    labels: ['Humidity', 'Rainy', 'Temperature', 'Mist', 'Cloud'],
+  // const [latitude, setLatitude] = useState('');
+  // const [longitude, setlongitude] = useState('');
+  const [data, setData] = useState({
+    labels: ['Humidity', 'Temperature', 'Rainy', 'Wind Speed', 'Cloud'],
     datasets: [
       {
         label: 'Weather Stat',
-        data: [humidity, temperature, rainy, mist, cloud],
+        data: [0, 0, 0, 0, 0], // initial placeholder data
         backgroundColor: [
           'rgba(75, 192, 192, 0.6)',
           'rgba(255, 99, 132, 0.6)',
@@ -51,7 +51,61 @@ const BarChart = () => {
         borderWidth: 1,
       },
     ],
-  };
+  });
+
+  /**Fetch Weather details */
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      if (latitude && longitude) {
+        const API = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=2b144ed66c94782b99a3d9465633b082&units=metric`;
+        try {
+          const response = await fetch(API);
+          const weatherData = await response.json();
+          console.log(weatherData);
+
+          const updatedData = {
+            labels: ['Humidity', 'Temperature', 'Rainy', 'Wind Speed', 'Cloud'],
+            datasets: [
+              {
+                label: 'Weather Stat',
+                data: [
+                  weatherData.main.humidity,
+                  weatherData.main.temp,
+                  weatherData.rain ? (weatherData.rain['1h'] || 0) : 0,
+                  weatherData.visibility/100, //weatherData.visibility < 5000 ? 1 : 0, // simplistic way to represent mist
+                  weatherData.clouds.all,
+                ],
+                backgroundColor: [
+                  'rgba(75, 192, 192, 0.6)',
+                  'rgba(255, 99, 132, 0.6)',
+                  'rgba(54, 162, 235, 0.6)',
+                  'rgba(255, 206, 86, 0.6)',
+                  'rgba(153, 102, 255, 0.6)',
+                ],
+                borderColor: [
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(153, 102, 255, 1)',
+                ],
+                borderWidth: 1,
+              },
+            ],
+          };
+
+          setData(updatedData);
+        } catch (error) {
+          console.error('Error fetching weather data:', error);
+        }
+      }
+    };
+
+    fetchWeatherData();
+  }, [latitude, longitude]);
+
+
+
 
   const options = {
     scales: {

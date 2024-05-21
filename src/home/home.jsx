@@ -8,7 +8,6 @@ function Home(){
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [currentDate, setCurrentDate] = useState(new Date());
   useEffect(() => {
-    console.log('this');
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -34,7 +33,6 @@ function Home(){
 
     return () => clearInterval(timer);
   }, []);
-  
   return(
     <div className="App container">
       <h1 className="text-center my-4"></h1>
@@ -43,9 +41,10 @@ function Home(){
           <div className="card mb-4 shadow-sm">
             <div className="card-header">
               <h5 className="card-title">Weather Chart of {currentDate.toDateString()}</h5>
+              <p>Current Location <b>{location.latitude}</b> and <b>{location.longitude}</b></p>
             </div>
             <div className="card-body">
-              <BarChart />
+              <BarChart latitude={location.latitude} longitude={location.longitude} />
             </div>
           </div>
         </div>
