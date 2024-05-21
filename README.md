@@ -78,3 +78,42 @@ const ForExample = () => {
   );
 };
 ``` 
+
+```js
+/**
+ * 
+ */
+useEffect(() => {
+  /* ComponentDidMount code */
+}, []);
+
+/**
+ * 
+ */
+useEffect(() => {
+  return () => {
+   /* componentWillUnmount code */
+  }
+}, []);
+/**
+ * we need to set at least one variable as hook's dependency 
+ * (in this case, var1 and var2)
+ */
+useEffect(() => {
+  /* componentDidUpdate code */
+}, [var1, var2]);
+```
+> Refer: https://stackoverflow.com/questions/55020041/react-hooks-useeffect-cleanup-for-only-componentwillunmount
+> Refer: https://dev.to/prototyp/react-useeffect-explained-with-lifecycle-methods-296n
+
+### Usestate Hook
+> useState is a React Hook that lets you add a state variable to your component.
+```js
+import { useState } from 'react';
+const myComponent = () => {
+ const [state, setState] = useState(initialState);
+ setState('This is a state');
+}
+```
+### React Hook Form
+> Refer: https://react-hook-form.com
