@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import PieChart from '../charts/piechart';
 import BarChart from '../charts/barchart';
+import GoogleMapComponent from '../maps/map';
 import './home.css';
 
 function Home(){
@@ -55,6 +56,18 @@ function Home(){
             </div>
             <div className="card-body">
               {/* <PieChart /> */}
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">
+            <div className="card mb-4 shadow-sm">
+              <div className="card-header">
+                <h5 className="card-title">Google Map</h5>
+              </div>
+              <div className="card-body">
+                <GoogleMapComponent latitude={location.latitude} longitude={location.longitude} />
+              </div>
             </div>
           </div>
         </div>
