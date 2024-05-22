@@ -117,3 +117,11 @@ const myComponent = () => {
 ```
 ### React Hook Form
 > Refer: https://react-hook-form.com
+
+### `userRef` hook
+>  is a React Hook that lets you reference a value.
+```js
+const chartRef = useRef();
+
+const input = chartRef.current;
+```

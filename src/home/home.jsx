@@ -1,5 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import PieChart from '../charts/piechart';
 import BarChart from '../charts/barchart';
 import GoogleMapComponent from '../maps/map';
@@ -9,6 +11,7 @@ import './home.css';
 function Home(){
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [currentDate, setCurrentDate] = useState(new Date());
+  const chartRef = useRef();
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -35,10 +38,20 @@ function Home(){
 
     return () => clearInterval(timer);
   }, []);
+
+  const exportToPdf = () => {
+    const input = chartRef.current;
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, 'PNG', 10, 10);
+      pdf.save('weather-charts.pdf');
+    });
+  };
   return(
     <div className="App container">
       <h1 className="text-center my-4"></h1>
-      <div className="row">
+      <div className="row" ref={chartRef}>
         <div className="col-md-6">
           <div className="card mb-4 shadow-sm">
             <div className="card-header">
@@ -69,6 +82,9 @@ function Home(){
               </div>
             </div>
           </div>
+        </div>
+        <div className="text-center mt-4">
+          <button className="btn btn-primary" onClick={exportToPdf}>Export to PDF</button>
         </div>
       </div>
     </div>
