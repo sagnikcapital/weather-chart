@@ -13,9 +13,9 @@ const RechartBar = ({ latitude, longitude }) => {
         const weatherData = await response.json();
 
         const data = [
-          { name: 'Humidity', value: weatherData.main.humidity },
-          { name: 'Temperature', value: weatherData.main.temp }, // Converting Kelvin to Celsius
-          { name: 'Pressure', value: weatherData.main.pressure/100 },
+          { name: 'Humidity', value: weatherData.main.humidity, fill: '#8884d8' },
+          { name: 'Temperature', value: weatherData.main.temp, fill: '#82ca9d' }, // Converting Kelvin to Celsius
+          { name: 'Pressure', value: weatherData.main.pressure/100, fill: '#ffc658' },
         ];
 
         setChartData(data);
@@ -41,7 +41,7 @@ const RechartBar = ({ latitude, longitude }) => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="value" fill="#8884d8" />
+        <Bar dataKey="value" />
       </BarChart>
     </ResponsiveContainer>
   );
