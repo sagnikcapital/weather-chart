@@ -73,7 +73,7 @@ const BarChart = ({latitude, longitude }) => {
                 data: [
                   weatherData.main.humidity,
                   weatherData.main.temp,
-                  weatherData.rain ? weatherData.rain['1h'] : 0,
+                  weatherData.rain ?( weatherData.rain['1h'] * 10) : 0,
                   weatherData.visibility/100, //weatherData.visibility < 5000 ? 1 : 0, // simplistic way to represent mist
                   weatherData.clouds.all,
                   weatherData.wind.speed * 10,

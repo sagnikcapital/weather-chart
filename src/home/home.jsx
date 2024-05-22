@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import PieChart from '../charts/piechart';
 import BarChart from '../charts/barchart';
 import GoogleMapComponent from '../maps/map';
+import RechartBar from '../charts/rechartbar';
 import './home.css';
 
 function Home(){
@@ -52,10 +53,10 @@ function Home(){
         <div className="col-md-6">
           <div className="card mb-4 shadow-sm">
             <div className="card-header">
-              <h5 className="card-title"></h5>
+              <h5 className="card-title">Single</h5>
             </div>
             <div className="card-body">
-              {/* <PieChart /> */}
+              <RechartBar latitude={location.latitude} longitude={location.longitude} />
             </div>
           </div>
         </div>
