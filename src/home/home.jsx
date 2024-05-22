@@ -62,9 +62,7 @@ function Home(){
         <div className="row">
           <div className="col-12">
             <div className="card mb-4 shadow-sm">
-              <div className="card-header">
-                <h5 className="card-title">Google Map</h5>
-              </div>
+              
               <div className="card-body">
                 <GoogleMapComponent latitude={location.latitude} longitude={location.longitude} />
               </div>
