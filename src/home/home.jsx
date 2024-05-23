@@ -82,7 +82,7 @@ function Home(){
           </div>
         </div>
         <div className="col-md-6">
-          <div className="card mb-4 shadow-sm">
+          <div className="card mb-4 shadow-sm single-title">
             <div className="card-header">
               <h5 className="card-title">Single</h5>
             </div>

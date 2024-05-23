@@ -26,7 +26,7 @@ const RechartBar = ({ latitude, longitude }) => {
   }, [latitude, longitude]);
 
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="100%" height={350}>
       <BarChart
         data={chartData}
         margin={{
