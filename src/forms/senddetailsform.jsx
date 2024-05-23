@@ -4,6 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 const SendDetailsForm = ({ onSubmit }) => {
+
+  const validationConfig = {
+    email: {
+      required: 'Email is required',
+      pattern: {
+        value: /^\S+@\S+$/i,
+        message: 'Invalid email address',
+      },
+    },
+    note: {
+      required: 'Note is required',
+    },
+  };
   const {
     register,
     handleSubmit,
@@ -18,7 +31,7 @@ const SendDetailsForm = ({ onSubmit }) => {
           type="email"
           id="email"
           className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-          {...register('email', { required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address' } })}
+          {...register('email', validationConfig.email)}
         />
         {errors.email && <div className="invalid-feedback">{errors.email.message}</div>}
       </div>
@@ -27,7 +40,7 @@ const SendDetailsForm = ({ onSubmit }) => {
         <textarea
           id="note"
           className={`form-control ${errors.note ? 'is-invalid' : ''}`}
-          {...register('note', { required: 'Note is required' })}
+          {...register('note', validationConfig.note)}
         />
         {errors.note && <div className="invalid-feedback">{errors.note.message}</div>}
       </div>

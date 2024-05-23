@@ -125,3 +125,6 @@ const chartRef = useRef();
 
 const input = chartRef.current;
 ```
+
+### Home Page
+![Home](/public/blobs/home.png)
