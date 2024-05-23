@@ -110,6 +110,7 @@ useEffect(() => {
 }, [var1, var2]);
 ```
 > Refer: https://stackoverflow.com/questions/55020041/react-hooks-useeffect-cleanup-for-only-componentwillunmount
+
 > Refer: https://dev.to/prototyp/react-useeffect-explained-with-lifecycle-methods-296n
 
 ### Usestate Hook
