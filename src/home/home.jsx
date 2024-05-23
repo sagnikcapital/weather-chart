@@ -8,6 +8,7 @@ import GoogleMapComponent from '../maps/map';
 import RechartBar from '../charts/rechartbar';
 import SendDetailsModal from '../modals/detail';
 import { Circles } from 'react-loader-spinner';
+import LineChartComponent from '../charts/linechart';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './home.css';
 
@@ -87,7 +88,8 @@ function Home(){
               <h5 className="card-title">Single</h5>
             </div>
             <div className="card-body">
-              <RechartBar latitude={location.latitude} longitude={location.longitude} />
+              {/* <RechartBar latitude={location.latitude} longitude={location.longitude} /> */}
+              <LineChartComponent latitude={location.latitude} longitude={location.longitude} />
             </div>
           </div>
         </div>
