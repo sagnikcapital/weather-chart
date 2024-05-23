@@ -45,15 +45,15 @@ function Home(){
   }, []);
 
   const exportToPdf = () => {
-    const input = chartRef.current;
     setIsLoading(true);
+    const input = chartRef.current;
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, 'PNG', 10, 10);
+      const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
+      pdf.addImage(imgData, 'PNG', 100, 100);
       pdf.save('weather-charts.pdf');
     });
   };
