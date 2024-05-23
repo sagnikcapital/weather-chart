@@ -6,11 +6,16 @@ import PieChart from '../charts/piechart';
 import BarChart from '../charts/barchart';
 import GoogleMapComponent from '../maps/map';
 import RechartBar from '../charts/rechartbar';
+import SendDetailsModal from '../modals/detail';
+import { Circles } from 'react-loader-spinner';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './home.css';
 
 function Home(){
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const chartRef = useRef();
   useEffect(() => {
     if (navigator.geolocation) {
@@ -41,12 +46,25 @@ function Home(){
 
   const exportToPdf = () => {
     const input = chartRef.current;
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF();
       pdf.addImage(imgData, 'PNG', 10, 10);
       pdf.save('weather-charts.pdf');
     });
+  };
+
+  /**Handle submit */
+  const handleSendDetails = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowModal(true);
+    }, 2000); // Adjust the time as needed
   };
   return(
     <div className="App container">
@@ -73,6 +91,12 @@ function Home(){
             </div>
           </div>
         </div>
+
+        <div className="text-center mt-4">
+          <button className="btn btn-primary" onClick={exportToPdf}>Export to PDF</button>
+
+          <button className='btn btn-secondary ml-2' onClick={handleSendDetails}>Send Details</button>
+        </div>
         <div className="row">
           <div className="col-12">
             <div className="card mb-4 shadow-sm">
@@ -83,9 +107,17 @@ function Home(){
             </div>
           </div>
         </div>
-        <div className="text-center mt-4">
-          <button className="btn btn-primary" onClick={exportToPdf}>Export to PDF</button>
+        {isLoading && (
+        <div className="loader-container">
+          <Circles
+            height="100"
+            width="100"
+            color="#00BFFF"
+            ariaLabel="loading"
+          />
         </div>
+      )}
+        <SendDetailsModal show={showModal} handleClose={() => setShowModal(false)} />
       </div>
     </div>
   );
