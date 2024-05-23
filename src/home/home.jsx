@@ -19,6 +19,7 @@ function Home(){
   const [isLoading, setIsLoading] = useState(false);
   const chartRef = useRef();
   useEffect(() => {
+    /**Fetch geo location */
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
