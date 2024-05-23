@@ -3,11 +3,11 @@ body {
 }
 
 .container {
-  /* background-image: url('/assets/weather-background.eps');
+  background-image: url('/public/assets/weather-background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  /* height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
