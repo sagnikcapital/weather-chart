@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import './style.css';
 
 const SendDetailsForm = ({ onSubmit }) => {
