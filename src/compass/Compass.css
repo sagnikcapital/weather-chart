@@ -1,0 +1,27 @@
+/* src/components/Compass.css */
+.compass-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.compass {
+  width: 200px;
+  height: 200px;
+  border: 10px solid #333;
+  border-radius: 50%;
+  position: relative;
+  background: url('/public/assets/compass-background.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.needle {
+  width: 2px;
+  height: 100px;
+  background: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+}

@@ -9,6 +9,8 @@ import RechartBar from '../charts/rechartbar';
 import SendDetailsModal from '../modals/detail';
 import { Circles } from 'react-loader-spinner';
 import LineChartComponent from '../charts/linechart';
+import Header from '../layouts/header';
+import Compass from '../compass/compass';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './home.css';
 
@@ -95,11 +97,16 @@ function Home(){
           </div>
         </div>
 
+        <div className='row'>
+            <Compass />
+        </div>
+
         <div className="text-center mt-4">
           <button className="btn btn-primary" onClick={exportToPdf}>Export to PDF</button>
 
           <button className='btn btn-secondary ml-2' onClick={handleSendDetails}>Send Details</button>
         </div>
+
         <div className="row">
           <div className="col-12">
             <div className="card mb-4 shadow-sm">
