@@ -9,9 +9,7 @@ const Compass = () => {
       const compassHeading = event.alpha; // This is a simplification; a complete solution would need more calculations for different devices
       setDirection(compassHeading);
     };
-
     window.addEventListener('deviceorientation', handleOrientation);
-
     return () => {
       window.removeEventListener('deviceorientation', handleOrientation);
     };
