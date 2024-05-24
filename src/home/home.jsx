@@ -96,11 +96,9 @@ function Home(){
             </div>
           </div>
         </div>
-
         <div className='row'>
             <Compass />
         </div>
-
         <div className="text-center mt-4">
           <button className="btn btn-primary" onClick={exportToPdf}>Export to PDF</button>
 
