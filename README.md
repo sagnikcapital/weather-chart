@@ -211,3 +211,9 @@ function PasswordField() {
   <p id={passwordHintId}>
 </>
 ```
+
+### React Empty tag
+Apart from the regular React.Fragment syntax, there’s a very simple and easy JSX syntax available to use fragments, which is expressed by an empty JSX tag like below, This is a shorter syntax for React Fragments.
+```js
+<> </>
+```
