@@ -182,3 +182,8 @@ const input = chartRef.current;
 
 ### Home Page
 ![Home](/public/blobs/home.png)
+
+### Use `.env` values in Vite
+```js
+import.meta.env.KEY_NAME_FROM_ENV
+```
