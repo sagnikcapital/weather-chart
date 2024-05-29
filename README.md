@@ -191,3 +191,21 @@ import.meta.env.KEY_NAME_FROM_ENV
  <LoadScript googleMapsApiKey={import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY}>
 ```
 > Refer: https://vitejs.dev/guide/env-and-mode
+
+`useId` is a React Hook for generating unique IDs that can be passed to accessibility attributes.
+```js
+const id = useId()
+```
+- Generating unique IDs for accessibility attributes
+```js
+import { useId } from 'react';
+
+function PasswordField() {
+  const passwordHintId = useId();
+}
+
+<>
+  <input type="password" aria-describedby={passwordHintId} />
+  <p id={passwordHintId}>
+</>
+```
