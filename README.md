@@ -242,3 +242,4 @@ return (
   </ul>
 );
 ```
+> Refer: https://www.altcademy.com/blog/how-to-use-foreach-in-reactjs
