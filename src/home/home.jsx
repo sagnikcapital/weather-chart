@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./home.css";
 
-// library.add(faCoffee, faUser, faCheckSquare, faPaperPlane);
+library.add(faCoffee, faUser, faCheckSquare, faPaperPlane);
 
 function Home() {
   const [location, setLocation] = useState({ latitude: null, longitude: null });

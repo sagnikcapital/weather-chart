@@ -25,8 +25,8 @@ const GoogleMapComponent = ({ latitude, longitude })  => {
 }
 
 GoogleMapComponent.propTypes = {
-  latitude: PropTypes.string,
-  longitude: PropTypes.string
+  latitude: PropTypes.number,
+  longitude: PropTypes.number
 }
 
 export default GoogleMapComponent;
