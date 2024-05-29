@@ -1,6 +1,5 @@
-import React from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-
+import PropTypes from 'prop-types';
 
 const containerStyle = {
   width: '100%',
@@ -13,7 +12,7 @@ const GoogleMapComponent = ({ latitude, longitude })  => {
   };
 
   return (
-    <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+    <LoadScript googleMapsApiKey={import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -23,6 +22,11 @@ const GoogleMapComponent = ({ latitude, longitude })  => {
       </GoogleMap>
     </LoadScript>  
   );
+}
+
+GoogleMapComponent.propTypes = {
+  latitude: PropTypes.string,
+  longitude: PropTypes.string
 }
 
 export default GoogleMapComponent;

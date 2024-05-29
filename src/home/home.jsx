@@ -1,20 +1,22 @@
-import React from 'react';
-import { useState, useEffect, useRef } from 'react';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-import PieChart from '../charts/piechart';
-import BarChart from '../charts/barchart';
-import GoogleMapComponent from '../maps/map';
-import RechartBar from '../charts/rechartbar';
-import SendDetailsModal from '../modals/detail';
-import { Circles } from 'react-loader-spinner';
-import LineChartComponent from '../charts/linechart';
-import Header from '../layouts/header';
-import Compass from '../compass/compass';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './home.css';
+import { useState, useEffect, useRef } from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import BarChart from "../charts/barchart";
+import GoogleMapComponent from "../maps/map";
+import SendDetailsModal from "../modals/detail";
+import { Circles } from "react-loader-spinner";
+import LineChartComponent from "../charts/linechart";
+import Compass from "../compass/compass";
+// src/icons.js
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { faCoffee, faUser, faCheckSquare, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Home(){
+import "./home.css";
+
+// library.add(faCoffee, faUser, faCheckSquare, faPaperPlane);
+
+function Home() {
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [currentDate, setCurrentDate] = useState(new Date());
   const [showModal, setShowModal] = useState(false);
@@ -55,10 +57,14 @@ function Home(){
       setIsLoading(false);
     }, 2000);
     html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: [canvas.width, canvas.height] });
-      pdf.addImage(imgData, 'PNG', 100, 100);
-      pdf.save('weather-charts.pdf');
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "px",
+        format: [canvas.width, canvas.height],
+      });
+      pdf.addImage(imgData, "PNG", 100, 100);
+      pdf.save("weather-charts.pdf");
     });
   };
 
@@ -70,64 +76,69 @@ function Home(){
       setShowModal(true);
     }, 2000); // Adjust the time as needed
   };
-  return(
-    <div className="App container">
-      <h1 className="text-center my-4"></h1>
-      <div className="row" ref={chartRef}>
-        <div className="col-md-6">
-          <div className="card mb-4 shadow-sm">
-            <div className="card-header">
-              <h5 className="card-title">Weather Chart of {currentDate.toDateString()}</h5>
-              <p>Current Location <b>{location.latitude}</b> and <b>{location.longitude}</b></p>
-            </div>
-            <div className="card-body">
-              <BarChart latitude={location.latitude} longitude={location.longitude} />
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="card mb-4 shadow-sm single-title">
-            <div className="card-header">
-              <h5 className="card-title">Single</h5>
-            </div>
-            <div className="card-body">
-              {/* <RechartBar latitude={location.latitude} longitude={location.longitude} /> */}
-              <LineChartComponent latitude={location.latitude} longitude={location.longitude} />
-            </div>
-          </div>
-        </div>
-        <div className='row'>
-            <Compass />
-        </div>
-        <div className="text-center mt-4">
-          <button className="btn btn-primary" onClick={exportToPdf}>Export to PDF</button>
-
-          <button className='btn btn-secondary ml-2' onClick={handleSendDetails}>Send Details</button>
-        </div>
-
-        <div className="row">
-          <div className="col-12">
+  return (
+    <section className="App app-wrapper py-4">
+      <div className="container">
+        {/* <h1 className="text-center m-0"></h1> */}
+        <div className="row" ref={chartRef}>
+          <div className="col-md-6">
             <div className="card mb-4 shadow-sm">
-              
+              <div className="card-header">
+                <h5 className="card-title m-0">Weather Chart of {currentDate.toDateString()}</h5>
+                <p className="m-0">
+                  Current Location <b>{location.latitude}</b> and <b>{location.longitude}</b>
+                </p>
+              </div>
               <div className="card-body">
-                <GoogleMapComponent latitude={location.latitude} longitude={location.longitude} />
+                <BarChart latitude={location.latitude} longitude={location.longitude} />
               </div>
             </div>
           </div>
+          <div className="col-md-6">
+            <div className="card mb-4 shadow-sm single-title">
+              <div className="card-header">
+                <h5 className="card-title">Single</h5>
+              </div>
+              <div className="card-body">
+                {/* <RechartBar latitude={location.latitude} longitude={location.longitude} /> */}
+                <LineChartComponent latitude={location.latitude} longitude={location.longitude} />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <Compass />
+          </div>
+          <div className="text-center mt-4">
+            <button className="btn btn-primary" onClick={exportToPdf}>
+              {/* <FontAwesomeIcon icon="check-square" />  */}
+              Export to PDF
+            </button>
+
+            <button className="btn btn-secondary ml-2" onClick={handleSendDetails}>
+              {" "}
+              {/* <FontAwesomeIcon icon="paper-plane" />  */}
+              Send Details
+            </button>
+          </div>
+
+          <div className="row">
+            <div className="col-12">
+              <div className="card mb-4 shadow-sm">
+                <div className="card-body">
+                  <GoogleMapComponent latitude={location.latitude} longitude={location.longitude} />
+                </div>
+              </div>
+            </div>
+          </div>
+          {isLoading && (
+            <div className="loader-container">
+              <Circles height="100" width="100" color="#00BFFF" ariaLabel="loading" />
+            </div>
+          )}
+          <SendDetailsModal show={showModal} handleClose={() => setShowModal(false)} />
         </div>
-        {isLoading && (
-        <div className="loader-container">
-          <Circles
-            height="100"
-            width="100"
-            color="#00BFFF"
-            ariaLabel="loading"
-          />
-        </div>
-      )}
-        <SendDetailsModal show={showModal} handleClose={() => setShowModal(false)} />
       </div>
-    </div>
+    </section>
   );
 }
 export default Home;

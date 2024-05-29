@@ -1,6 +1,6 @@
-import {useState, useEffect, useTransition} from 'react';
+import  {useState, useEffect, useTransition} from 'react';
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './header.css';
 
 const Header = () => {

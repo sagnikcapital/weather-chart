@@ -1,8 +1,8 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+
+// import 'react-toastify/dist/ReactToastify.css';
 import SendDetailsForm from '../forms/senddetailsform';
 
 const SendDetailsModal = ({ show, handleClose }) => {
@@ -10,7 +10,7 @@ const SendDetailsModal = ({ show, handleClose }) => {
   const handleFormSubmit = (data) => {
     console.log('Form data:', data);
     // You can add logic to send the form data to your backend here
-    toast.success('Form submitted successfully!');
+    // toast.success('Form submitted successfully!');
     handleClose(); // Close the modal after form submission
   };
 
