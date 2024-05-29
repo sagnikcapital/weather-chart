@@ -226,3 +226,19 @@ Apart from the regular React.Fragment syntax, there’s a very simple and easy J
   <App />
 </StrictMode>
 ```
+
+### `foreachloop` 
+```js
+let users = ['Alice', 'Bob', 'Charlie'];
+
+let userElements = users.map(function(user) {
+  return <li>{user}</li>;
+});
+
+// Now we can use `userElements` in JSX:
+return (
+  <ul>
+    {userElements}
+  </ul>
+);
+```

@@ -10,6 +10,7 @@ const Header = () => {
   const handleCloseModal = () => setShowModal(false);
   return (
     <header className="header">
+      <meta name="keywords" content="React, JavaScript, semantic markup, html" />
       <nav className="navbar">
         <ul className="nav-list">
           <li className="nav-item">
