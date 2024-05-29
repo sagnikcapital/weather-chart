@@ -218,7 +218,8 @@ Apart from the regular React.Fragment syntax, there’s a very simple and easy J
 <> </>
 ```
 
-### <StrictMode>
+### `<StrictMode>`
+
 > find common bugs in components early during development.
 ```js
 <StrictMode>
