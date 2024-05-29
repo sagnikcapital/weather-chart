@@ -8,10 +8,10 @@ import { Circles } from "react-loader-spinner";
 import LineChartComponent from "../charts/linechart";
 import Compass from "../compass/compass";
 // src/icons.js
-// import { library } from '@fortawesome/fontawesome-svg-core';
-// import { faCoffee, faUser, faCheckSquare, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCoffee, faUser, faCheckSquare, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./home.css";
 
 // library.add(faCoffee, faUser, faCheckSquare, faPaperPlane);
@@ -110,13 +110,13 @@ function Home() {
           </div>
           <div className="text-center mt-4">
             <button className="btn btn-primary" onClick={exportToPdf}>
-              {/* <FontAwesomeIcon icon="check-square" />  */}
+              <FontAwesomeIcon icon="check-square" /> 
               Export to PDF
             </button>
 
             <button className="btn btn-secondary ml-2" onClick={handleSendDetails}>
               {" "}
-              {/* <FontAwesomeIcon icon="paper-plane" />  */}
+              <FontAwesomeIcon icon="paper-plane" /> 
               Send Details
             </button>
           </div>
