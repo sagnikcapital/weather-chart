@@ -175,6 +175,8 @@ const validationConfig = {
 ### `userRef` hook
 >  is a React Hook that lets you reference a value.
 ```js
+import { useRef } from 'react';
+
 const chartRef = useRef();
 
 const input = chartRef.current;
