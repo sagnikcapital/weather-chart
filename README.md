@@ -187,6 +187,6 @@ const input = chartRef.current;
 ```js
 import.meta.env.KEY_NAME_FROM_ENV
 ```
-> ```js
+```js
  <LoadScript googleMapsApiKey={import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY}>
-  ```
+```
