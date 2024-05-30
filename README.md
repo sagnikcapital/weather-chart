@@ -252,3 +252,20 @@ return (
 );
 ```
 > Refer: https://www.altcademy.com/blog/how-to-use-foreach-in-reactjs
+
+### `useEffect` in About
+```js
+const [aboutValue, setAboutValue] = useState('Hi');
+
+  useEffect(()=>{
+    /**On mounted Dom*/
+    setAboutValue('I am Sagnik');
+  },[]);
+
+  useEffect(() =>  {
+    /**On destroy */
+    return() => {
+      setAboutValue('Cleaned up');
+    };
+  });
+```
