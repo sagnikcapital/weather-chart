@@ -1,3 +1,23 @@
 .details-send {
   margin-top: 10px;
 }
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: 14px;
+}

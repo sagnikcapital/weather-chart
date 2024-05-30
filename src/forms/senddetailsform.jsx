@@ -1,5 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 // import { ToastContainer, toast } from 'react-toastify';
 
 // import 'react-toastify/dist/ReactToastify.css';
@@ -22,8 +24,15 @@ const SendDetailsForm = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
+    getValues,
+    setValue,
     formState: { errors },
   } = useForm();
+
+  const handleEditorChange = (event, editor) => {
+    const data = editor.getData();
+    setValue('note', data, { shouldValidate: true });
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -39,10 +48,22 @@ const SendDetailsForm = ({ onSubmit }) => {
       </div>
       <div className="form-group">
         <label htmlFor="note">Note:</label>
-        <textarea
+        {/* <textarea
           id="note"
           className={`form-control ${errors.note ? 'is-invalid' : ''}`}
           {...register('note', validationConfig.note)}
+        /> */}
+        <CKEditor
+          id="note"
+          editor={ClassicEditor}
+          data=""
+          onChange={handleEditorChange}
+          onBlur={() => {
+            const data = getValues('note');
+            if (!data || data === '') {
+              setValue('note', data, { shouldValidate: true });
+            }
+          }}
         />
         {errors.note && <div className="invalid-feedback">{errors.note.message}</div>}
       </div>

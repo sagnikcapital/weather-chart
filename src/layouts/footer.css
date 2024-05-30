@@ -11,12 +11,13 @@
 
 .floating-card {
   position: absolute;
-  top: -50px; /* Adjust this value to control the floating position */
-  background-color: white;
+  top: -40px; /* Adjust this value to control the floating position */
+  /* background-color: white; */
   border: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
   border-radius: 8px;
+  background-color:darkgray;
 }
 
 .footer-card p {
