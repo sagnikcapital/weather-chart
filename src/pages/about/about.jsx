@@ -3,10 +3,18 @@ import { useState, useEffect, useRef } from "react";
 
 const About = () => {
 
-  const [aboutValue, setaboutValue] = useState('Hi');
+  const [aboutValue, setAboutValue] = useState('Hi');
+
+  useEffect(()=>{
+
+  },[]);
+
+  const paraRef = useRef();
+
+  setAboutValue('This is a new line');
 
   return (
-    <p className="text-align-center">{ aboutValue }</p>
+    <p className="text-align-center paragraph">{ aboutValue }</p>
   );
 }
 
