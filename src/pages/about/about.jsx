@@ -7,7 +7,12 @@ const About = () => {
 
   useEffect(()=>{
     /**On mounted Dom*/
-    setAboutValue('I am sagnik');
+    setAboutValue('I am Sagnik');
+
+    /**On destroy */
+    return() => {
+      setAboutValue('Cleaned up');
+    };
   },[]);
 
   const paraRef = useRef();
