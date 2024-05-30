@@ -1,7 +1,7 @@
 import  {useState, useEffect, useTransition} from 'react';
 import { Link } from 'react-router-dom';
 import CycloneModal from '../modals/signupmodal';
-
+import DarkModeToggle from './darkmodetoggle';
 import './header.css';
 
 const Header = () => {
@@ -20,6 +20,7 @@ const Header = () => {
             <Link to="/" className="nav-link" onClick={handleShowModal}>Cyclone</Link>
           </li>
         </ul>
+        <DarkModeToggle />
       </nav>
       <CycloneModal show={showModal} handleClose={handleCloseModal} />
     </header>

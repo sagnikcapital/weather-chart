@@ -76,8 +76,11 @@ function Home() {
       setShowModal(true);
     }, 2000); // Adjust the time as needed
   };
+
+  /**Define Dark mode */
+  const [darkMode, setDarkMode] = useState(false);
   return (
-    <section className="App app-wrapper py-4">
+    <section className="App app-wrapper py-4" style={{ backgroundImage: `url(${darkMode ? '/public/assets/night-background.jpg' : '/public/assets/weather-background.jpg'})` }}>
       <div className="container">
         {/* <h1 className="text-center m-0"></h1> */}
         <div className="row" ref={chartRef}>
