@@ -12,11 +12,14 @@ const GoogleMapComponent = ({ latitude, longitude })  => {
   };
 
   return (
-    <LoadScript googleMapsApiKey={import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY}>
+    <LoadScript googleMapsApiKey={import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY} scriptOptions={{
+      defer: true,
+      async: true,
+    }}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={16}
       >
         <Marker position={center} />
       </GoogleMap>
