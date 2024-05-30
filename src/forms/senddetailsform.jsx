@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import PropTypes from 'prop-types';
 // import { ToastContainer, toast } from 'react-toastify';
 
 // import 'react-toastify/dist/ReactToastify.css';
@@ -74,4 +75,7 @@ const SendDetailsForm = ({ onSubmit }) => {
   );
 }
 
+SendDetailsForm.PropTypes = {
+  onSubmit: PropTypes.any
+}
 export default SendDetailsForm;
