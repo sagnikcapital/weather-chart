@@ -8,12 +8,16 @@ const About = () => {
   useEffect(()=>{
     /**On mounted Dom*/
     setAboutValue('I am Sagnik');
+  },[]);
 
+  useEffect(() =>  {
     /**On destroy */
     return() => {
       setAboutValue('Cleaned up');
     };
-  },[]);
+  });
+
+  // https://stackoverflow.com/questions/55020041/react-hooks-useeffect-cleanup-for-only-componentwillunmount
 
   const paraRef = useRef();
 
