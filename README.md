@@ -8,6 +8,11 @@ This project demonstrates how to create a React application with interactive cha
 - Npm (10.5.0)
 - React(18.3.1) 
 
+### Set Default Node and NPM version
+```sh
+$ nvm alias default <version>
+```
+
 ### Installation 
 ```sh
 $ git clone https://github.com/sagnikcapital/weather-chart.git
