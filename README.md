@@ -255,6 +255,8 @@ return (
 
 ### `useEffect` in About
 ```js
+import { useEffect } from "react";
+
 const [aboutValue, setAboutValue] = useState('Hi');
 
   useEffect(()=>{
