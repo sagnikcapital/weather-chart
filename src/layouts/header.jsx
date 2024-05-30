@@ -19,6 +19,9 @@ const Header = () => {
           <li className="nav-item">
             <Link to="/" className="nav-link" onClick={handleShowModal}>Cyclone</Link>
           </li>
+          <li className="nav-item">
+          <Link to="/about" className="nav-link">About</Link>
+          </li>
         </ul>
         <DarkModeToggle />
       </nav>
