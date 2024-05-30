@@ -157,8 +157,8 @@ const CycloneModal = ({ show, handleClose }) => {
 };
 
 CycloneModal.PropTypes = {
-  show: PropTypes.bool,
-  handleClose: PropTypes.bool
+  show: PropTypes.bool.required,
+  handleClose: PropTypes.bool.required
 }
 
 export default CycloneModal;
