@@ -7,7 +7,6 @@ import SendDetailsModal from "../modals/detail";
 import { Circles } from "react-loader-spinner";
 import LineChartComponent from "../charts/linechart";
 import Compass from "../compass/compass";
-// src/icons.js
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCoffee, faUser, faCheckSquare, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
