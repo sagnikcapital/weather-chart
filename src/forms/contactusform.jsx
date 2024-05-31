@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 import './contactusform.css';
 const ContactUsForm = () => {
   /**Set Initial value of form fields */
@@ -21,12 +22,17 @@ const ContactUsForm = () => {
     const baseUrl = import.meta.env.VITE_BASE_API_URL;
     const apiEndpoint = baseUrl + 'https://your-api-endpoint.com/contact';
     try {
-      const response = await fetch(apiEndpoint, {
-        method: 'POST',
+      // const response = await fetch(apiEndpoint, {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(values),
+      // });
+      const response = await axios.post(apiEndpoint, values, {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(values),
       });
       if (!response.ok) {
         throw new Error('Network response was not ok');
