@@ -17,10 +17,28 @@ const ContactUsForm = () => {
     phone: Yup.number().required('Phone number required')
   });
   /**Form submission process */
-  const onSubmit = (values, { resetForm }) => {
-    console.log('Form data', values);
-    resetForm();
-    alert('Thank you for your message!');
+  const onSubmit = async (values, { resetForm }) => {
+    const baseUrl = import.meta.env.VITE_BASE_API_URL;
+    const apiEndpoint = baseUrl + 'https://your-api-endpoint.com/contact';
+    try {
+      const response = await fetch(apiEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      alert('Thank you for your message!');
+      resetForm();
+      const result = await response.json();
+      console.log('Success:', result);
+    } catch (error) {
+      console.error('Error:', error);
+      alert('There was an error submitting your message. Please try again later.');
+    }
   };
 
   return (
