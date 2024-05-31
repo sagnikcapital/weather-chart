@@ -1,5 +1,6 @@
 import  { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,35 +21,28 @@ ChartJS.register(
 );
 
 
-const BarChart = ({latitude, longitude }) => {
-  // const humidity = 12;
-  // const temperature = 19;
-  // const rainy = 5;
-  // const mist = 4;
-  // const cloud = 16;
-  // const [latitude, setLatitude] = useState('');
-  // const [longitude, setlongitude] = useState('');
+const BarChart = ({ latitude, longitude }) => {
   const [data, setData] = useState({
-    labels: ['Humidity', 'Temperature', 'Rainy', 'Visibility', 'Cloud', 'WindSpeed'],
+    labels: ["Humidity", "Temperature", "Rainy", "Visibility", "Cloud", "WindSpeed"],
     datasets: [
       {
-        label: 'Weather Stat',
+        label: "Weather Stat",
         data: [0, 0, 0, 0, 0, 0], // initial placeholder data
         backgroundColor: [
-          'rgba(75, 192, 192, 0.6)',
-          'rgba(255, 99, 132, 0.6)',
-          'rgba(54, 162, 235, 0.6)',
-          'rgba(255, 206, 86, 0.6)',
-          'rgba(153, 102, 255, 0.6)',
-          'rgba(255, 159, 64, 0.6)',
+          "rgba(75, 192, 192, 0.6)",
+          "rgba(255, 99, 132, 0.6)",
+          "rgba(54, 162, 235, 0.6)",
+          "rgba(255, 206, 86, 0.6)",
+          "rgba(153, 102, 255, 0.6)",
+          "rgba(255, 159, 64, 0.6)",
         ],
         borderColor: [
-          'rgba(75, 192, 192, 1)',
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
+          "rgba(75, 192, 192, 1)",
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
         ],
         borderWidth: 1,
       },
@@ -66,33 +60,33 @@ const BarChart = ({latitude, longitude }) => {
           console.log(weatherData);
 
           const updatedData = {
-            labels: ['Humidity', 'Temperature', 'Rainy', 'Visibility', 'Cloud', 'WindSpeed'],
+            labels: ["Humidity", "Temperature", "Rainy", "Visibility", "Cloud", "WindSpeed"],
             datasets: [
               {
-                label: 'Weather Stat',
+                label: "Weather Stat",
                 data: [
                   weatherData.main.humidity,
                   weatherData.main.temp,
-                  weatherData.rain ?( weatherData.rain['1h'] * 10) : 0,
-                  weatherData.visibility/100, //weatherData.visibility < 5000 ? 1 : 0, // simplistic way to represent mist
+                  weatherData.rain ? weatherData.rain["1h"] * 10 : 0,
+                  weatherData.visibility / 100, //weatherData.visibility < 5000 ? 1 : 0, // simplistic way to represent mist
                   weatherData.clouds.all,
                   weatherData.wind.speed * 10,
                 ],
                 backgroundColor: [
-                  'rgba(75, 192, 192, 0.6)',
-                  'rgba(255, 99, 132, 0.6)',
-                  'rgba(54, 162, 235, 0.6)',
-                  'rgba(255, 206, 86, 0.6)',
-                  'rgba(153, 102, 255, 0.6)',
-                  'rgba(255, 159, 64, 0.6)',
+                  "rgba(75, 192, 192, 0.6)",
+                  "rgba(255, 99, 132, 0.6)",
+                  "rgba(54, 162, 235, 0.6)",
+                  "rgba(255, 206, 86, 0.6)",
+                  "rgba(153, 102, 255, 0.6)",
+                  "rgba(255, 159, 64, 0.6)",
                 ],
                 borderColor: [
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)',
+                  "rgba(75, 192, 192, 1)",
+                  "rgba(255, 99, 132, 1)",
+                  "rgba(54, 162, 235, 1)",
+                  "rgba(255, 206, 86, 1)",
+                  "rgba(153, 102, 255, 1)",
+                  "rgba(255, 159, 64, 1)",
                 ],
                 borderWidth: 1,
               },
@@ -101,7 +95,7 @@ const BarChart = ({latitude, longitude }) => {
 
           setData(updatedData);
         } catch (error) {
-          console.error('Error fetching weather data:', error);
+          console.error("Error fetching weather data:", error);
         }
       }
     };
@@ -109,13 +103,10 @@ const BarChart = ({latitude, longitude }) => {
     fetchWeatherData();
   }, [latitude, longitude]);
 
-
-
-
   const options = {
     scales: {
       x: {
-        beginAtZero: false
+        beginAtZero: false,
       },
       y: {
         beginAtZero: true,
@@ -124,6 +115,11 @@ const BarChart = ({latitude, longitude }) => {
   };
 
   return <Bar data={data} options={options} />;
-}
+};
+
+BarChart.propTypes = {
+  latitude: PropTypes.number,
+  longitude: PropTypes.number,
+};
 
 export default BarChart;

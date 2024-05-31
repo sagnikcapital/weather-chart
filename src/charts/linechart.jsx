@@ -1,34 +1,39 @@
 import  { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-const LineChartComponent = ({latitude, longitude}) => {
+import PropTypes from 'prop-types';
+const LineChartComponent = ({ latitude, longitude }) => {
   const [weatherData, setWeatherData] = useState([]);
   useEffect(() => {
     if (latitude && longitude) {
       const fetchWeatherData = async () => {
-        const API_KEY = '2b144ed66c94782b99a3d9465633b082';
+        const API_KEY = "2b144ed66c94782b99a3d9465633b082";
         const API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
 
         try {
           const response = await fetch(API_URL);
           const data = await response.json();
-          
-          const transformedData = data.list.map(item => ({
+
+          const transformedData = data.list.map((item) => ({
             name: new Date(item.dt * 1000).toLocaleDateString(),
             temperature: item.main.temp,
             humidity: item.main.humidity,
-            pressure: item.main.pressure
+            pressure: item.main.pressure,
           }));
 
           setWeatherData(transformedData);
         } catch (error) {
-          console.error('Error fetching weather data:', error);
+          console.error("Error fetching weather data:", error);
         }
       };
 
       fetchWeatherData();
     }
   }, [latitude, longitude]);
+
+  LineChartComponent.propTypes = {
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+  };
 
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -52,6 +57,6 @@ const LineChartComponent = ({latitude, longitude}) => {
       </LineChart>
     </ResponsiveContainer>
   );
-}
+};
 
 export default LineChartComponent;

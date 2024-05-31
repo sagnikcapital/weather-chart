@@ -1,4 +1,3 @@
-import { useState, useEffect, useTransition } from 'react';
 import { Modal, Tab, Tabs } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
@@ -50,7 +49,7 @@ const CycloneModal = ({ show, handleClose }) => {
     // Post data to API
   };
 
-  // Signup form
+  // Sign up form
   const {
     register: registerSignup,
     handleSubmit: handleSubmitSignup,
@@ -59,7 +58,7 @@ const CycloneModal = ({ show, handleClose }) => {
   } = useForm();
 
   const onSubmitSignup = (data) => {
-    console.log('Signup Data:', data);
+    console.log('Sign up Data:', data);
     // Post data to API
   };
 
@@ -156,9 +155,9 @@ const CycloneModal = ({ show, handleClose }) => {
   );
 };
 
-CycloneModal.PropTypes = {
-  show: PropTypes.bool.required,
-  handleClose: PropTypes.bool.required
-}
+CycloneModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+};
 
 export default CycloneModal;

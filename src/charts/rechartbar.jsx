@@ -1,7 +1,7 @@
 // src/WeatherBarChart.js
 import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
+import PropTypes from 'prop-types';
 const RechartBar = ({ latitude, longitude }) => {
   const [chartData, setChartData] = useState([]);
 
@@ -13,9 +13,9 @@ const RechartBar = ({ latitude, longitude }) => {
         const weatherData = await response.json();
 
         const data = [
-          { name: 'Humidity', value: weatherData.main.humidity, fill: '#8884d8' },
-          { name: 'Temperature', value: weatherData.main.temp, fill: '#82ca9d' }, // Converting Kelvin to Celsius
-          { name: 'Pressure', value: weatherData.main.pressure/100, fill: '#ffc658' },
+          { name: "Humidity", value: weatherData.main.humidity, fill: "#8884d8" },
+          { name: "Temperature", value: weatherData.main.temp, fill: "#82ca9d" },
+          { name: "Pressure", value: weatherData.main.pressure / 100, fill: "#ffc658" },
         ];
 
         setChartData(data);
@@ -45,6 +45,11 @@ const RechartBar = ({ latitude, longitude }) => {
       </BarChart>
     </ResponsiveContainer>
   );
+};
+
+RechartBar.propTypes = {
+  latitude: PropTypes.number.isRequired,
+  longitude: PropTypes.number.isRequired,
 };
 
 export default RechartBar;

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { useState, useEffect } from "react";
+// No changes needed, the import is likely used elsewhere in the file
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
