@@ -26,11 +26,7 @@ const ContactUsForm = () => {
 
   return (
     <div className="contact-container">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
+      <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} >
         <Form className="contact-form">
           <div className="form-group">
             <label htmlFor="name">Name</label>
