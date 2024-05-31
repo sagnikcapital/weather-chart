@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import './about.css';
 
 const About = () => {
@@ -19,8 +19,6 @@ const About = () => {
   // https://stackoverflow.com/questions/55020041/react-hooks-useeffect-cleanup-for-only-componentwillunmount
 
   // const paraRef = useRef();
-
-  // setAboutValue('This is a new line');
 
   return (
     // <p className="text-align-center paragraph">{ aboutValue }</p>
