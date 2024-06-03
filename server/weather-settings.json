@@ -9,6 +9,8 @@
   "start": "npm start",
   "test": {
     "destination": "__tests__/home.test",
-    "test": "npm test"
-  }
+    "script": "npm test"
+  },
+  "home": "../src/home/home",
+  "about": "../src/pages/about/about"
 }
