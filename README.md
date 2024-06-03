@@ -421,7 +421,7 @@ export default Profile;
 
 ### 404 Not found Page
 ```js
-import NotFound from "./error/notfound"; /**Template page component*/
+import NotFound from "./error/notfound"; /*Template page component*/
 
 /*Other Routes*/
 <Route path="*" element={<NotFound />} />
