@@ -354,3 +354,67 @@ import * as Yup from 'yup';
     </Form>
   </Formik>
 ```
+
+### `useParams` Hooks
+
+> URL: https::/domain/profile/{username}
+> Route:
+```js
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Profile from './pages/profile/profile';
+
+  <Route path="/profile/:userName" component={Profile} />
+```
+
+> Profile Component
+```js
+import { useParams } from 'react-router-dom';
+
+const Profile = () => {
+  const { userName } = useParams();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(`http://localhost:5173/weather-chart/api/profile-details/${userName}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setUser(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
+  }, [userName]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!user) {
+    return <div>User not found</div>;
+  }
+
+  return (
+    <div>
+      <h1>Profile: {user.name}</h1>
+      <p>Bio: {user.bio}</p>
+      <p>Age: {user.age}</p>
+    </div>
+  );
+};
+
+export default Profile;
+```
