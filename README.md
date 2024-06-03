@@ -426,6 +426,3 @@ import NotFound from "./error/notfound"; /*Template page component*/
 /*Other Routes*/
 <Route path="*" element={<NotFound />} />
 ```
-### Settings JSON
-
-![JSON](/server/weather-settings.json)
