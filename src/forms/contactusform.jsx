@@ -68,7 +68,7 @@ const ContactUsForm = () => {
 
           <div className="form-group">
             <label htmlFor="email">Phone</label>
-            <Field type="number" id="phone" name="phone" className="form-control" />
+            <Field type="number" id="phone" name="phone" maxLength="10" className="form-control" />
             <ErrorMessage name="phone" component="div" className="error-message" />
           </div>
 
