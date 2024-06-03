@@ -11,6 +11,7 @@
     "destination": "__tests__/home.test",
     "script": "npm test"
   },
-  "home": "../src/home/home",
-  "about": "../src/pages/about/about"
+  "home":  "../src/home/home",
+  "about": "../src/pages/about/about",
+  "git":   "https://github.com/sagnikcapital/weather-chart"
 }
