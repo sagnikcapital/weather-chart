@@ -4,5 +4,11 @@
   "rain": "*/100",
   "unit": "C",
   "Language": "ENG",
-  "assets": "../public/assets"
+  "assets": "../public/assets",
+  "pressure": "CGS",
+  "start": "npm start",
+  "test": {
+    "destination": "__tests__/home.test",
+    "test": "npm test"
+  }
 }
