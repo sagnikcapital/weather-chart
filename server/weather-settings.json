@@ -1,6 +1,8 @@
 {
-  "open-weather-api": "",
+  "open-weather-api": "https://api.openweathermap.org/data/2.5/",
   "api-key": "",
-  "rain": "",
-  "unit": ""
+  "rain": "*/100",
+  "unit": "C",
+  "Language": "ENG",
+  "assets": "../public/assets"
 }
