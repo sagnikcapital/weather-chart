@@ -426,3 +426,19 @@ import NotFound from "./error/notfound"; /*Template page component*/
 /*Other Routes*/
 <Route path="*" element={<NotFound />} />
 ```
+
+### `useContext` Hook for to read and subscribe to context.
+```js
+import { createContext, useContext } from 'react';
+
+export const ThemeContext = createContext();
+const theme = useContext(ThemeContext);
+
+/**Component code */
+return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+/**Component code */
+```
