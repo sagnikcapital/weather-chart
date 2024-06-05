@@ -4,15 +4,11 @@ This project demonstrates how to create a React application with interactive cha
 
 ### System requirements
 
-- [Node(18.20.2)] (https://nodejs.org/en)
-- [Npm (10.5.0)] (https://www.npmjs.com)
-- [React(18.3.1)] (https://react.dev/learn)
-
-- [PHP (8.0)](https://reintech.io/blog/installing-php-8-on-ubuntu-22)
+- [Node(18.20.2)](https://nodejs.org/en)
 <!-- - ![Composer 2.0](https://img.shields.io/badge/composer-%23000000.svg?style=plastic&logo=composer&logoColor=white)  -->
-- [Composer (2.0)](https://getcomposer.org/download)
+- [Npm (10.5.0)](https://www.npmjs.com)
 <!-- - ![Lumen](https://img.shields.io/badge/lumen-%23E74430.svg?style=plastic&logo=lumen&logoColor=white) -->
-- [Lumen (10.0)]()
+- [React(18.3.1)](https://react.dev/learn)
 <!-- - ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=plastic&logo=apache&logoColor=white) -->
 - [Apache or Nginx](https://ubuntu.com/tutorials/install-and-configure-apache#2-installing-apache)
 <!-- - ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=plastic&logo=mysql&logoColor=white)  -->
