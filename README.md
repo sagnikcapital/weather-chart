@@ -485,7 +485,7 @@ export default ChildButton;
 ```
 > Usage
 ```js
-import ChildButton from '../componenets/childbutton';
+import ChildButton from '../components/childbutton';
 
 <ChildButton message="just clicked">
   <span>Click Me!</span>
