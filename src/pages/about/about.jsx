@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import HomeButton from "../../home/home-button";
 import './about.css';
 
 const About = () => {
@@ -26,6 +27,7 @@ const About = () => {
       <div className="about-container">
         <header className="about-header">
           <h1>About WeatherApp</h1>
+          <HomeButton /> 
           <p>Your reliable source for accurate weather information.</p>
         </header>
         <section className="about-content">
