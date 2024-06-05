@@ -4,9 +4,9 @@ This project demonstrates how to create a React application with interactive cha
 
 ### System requirements
 
-- Node(18.20.2)
-- Npm (10.5.0)
-- React(18.3.1) 
+- [Node(18.20.2)] (https://nodejs.org/en)
+- [Npm (10.5.0)] (https://www.npmjs.com)
+- [React(18.3.1)] (https://react.dev/learn)
 
 ### Installation 
 ```sh
