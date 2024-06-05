@@ -442,3 +442,34 @@ return (
   );
 /**Component code */
 ```
+
+### Use Navigation 
+> Example
+```js
+import { useNavigate } from 'react-router-dom';
+
+const HomeButton = () => {
+  let history = useNavigate();
+
+  const handleHistory = () => {
+    history("/"); /**Navigate to Home */
+  }
+
+  return (
+    <Button variant="link" onClick={handleHistory}>
+      Home
+    </Button>
+  );
+}
+```
+
+### React Events
+|------------------|------------------|------------------|
+| 1. onFocus       | 2. onClick       | 3. onChange      |
+|--------------------------------------------------------|
+| 4. onInput       | 5. onSubmit      | 6. onInvalid     |
+|------------------|------------------|------------------|
+| 7. onReset       | 8. onLoad        | 9. onContextMenu |
+|------------------|------------------|------------------|
+| 10. onDrag       | 11. onMouseMove  | 12. onMouseEnter |
+|------------------|------------------|------------------| 
