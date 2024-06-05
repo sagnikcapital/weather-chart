@@ -483,3 +483,11 @@ const ChildButton = ({message, children}) => {
 
 export default ChildButton;
 ```
+> Usage
+```js
+import ChildButton from '../componenets/childbutton';
+
+<ChildButton message="just clicked">
+  <span>Click Me!</span>
+</ChildButton>
+```
