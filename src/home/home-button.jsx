@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const HomeButton = () => {
   let history = useNavigate();
@@ -8,9 +9,9 @@ const HomeButton = () => {
   }
 
   return (
-    <button className="home-button" onClick={handleHistory}>
+    <Button variant="link" onClick={handleHistory}>
       Home
-    </button>
+    </Button>
   );
 
 }
