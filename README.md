@@ -464,7 +464,7 @@ const HomeButton = () => {
 ```
 
 ### React Events
-|                  |                  |                  |
+
 |------------------|------------------|------------------|
 | 1. onFocus       | 2. onClick       | 3. onChange      |
 | 4. onInput       | 5. onSubmit      | 6. onInvalid     |
