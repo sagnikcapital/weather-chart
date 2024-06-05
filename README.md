@@ -470,3 +470,16 @@ const HomeButton = () => {
 | 4. onInput       | 5. onSubmit      | 6. onInvalid     |
 | 7. onReset       | 8. onLoad        | 9. onContextMenu |
 | 10. onDrag       | 11. onMouseMove  | 12. onMouseEnter | 
+
+
+### Children append Component 
+
+```js
+const ChildButton = ({message, children}) => {
+  return (
+    <button className="child-button" onClick={() => alert(message)}>{children}</button>
+  );
+}
+
+export default ChildButton;
+```
