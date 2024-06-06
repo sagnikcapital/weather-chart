@@ -596,3 +596,19 @@ console.log(location);
 - URL: http://localhost:5173/api-docs 
 - Page
 ![Home](/public/blobs/swagger.png)
+
+> Source
+```js
+import SwaggerUI from 'swagger-ui-react';
+import 'swagger-ui-react/swagger-ui.css';
+
+const SwaggerUIComponent = () => {
+  return (
+    <div>
+      <SwaggerUI url="/server/contact-us-api.json" />
+    </div>
+  );
+};
+
+export default SwaggerUIComponent;
+```
