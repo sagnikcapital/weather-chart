@@ -491,3 +491,78 @@ import ChildButton from '../components/childbutton';
   <span>Click Me!</span>
 </ChildButton>
 ```
+
+### Auth Guard Example
+> Route or App Component
+```js
+
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
+function App() {
+  const[isAutheticated, setisAutheticated] = useState(false);
+
+  /**Login Attempt */
+  function login(){
+    setisAutheticated(true);
+    console.log("loggedInUser:" + isAutheticated)
+  }
+
+  /**Logout Attempt */
+  function logout(){
+    setisAutheticated(false);
+    console.log("loggedInUser:" + isAutheticated)
+  }
+  return (
+    <Router>
+      <div>
+        <ul>
+            <li>
+              <Link to='/'>
+                Link to Home Page
+              </Link>
+            </li>
+            <li>
+              <Link to='/protected'>
+                Link to Protected Page
+              </Link>
+            </li>
+            <li>
+              <Link to='/unprotected'>
+                Link to Unprotected Page
+              </Link>
+            </li>
+        </ul>
+        <button onClick={login}>Login</button>
+        <br/>
+        <button onClick={logout}>Logout</button>
+      </div>
+      <Switch>
+        <Route path='/protected' component={Protected}/>
+        <Route path='/unprotected' component={Unprotected}/>
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
+```
+> Auth Guarded utils or helper 
+```js
+import React from 'react';
+import { Route, Redirect } from "react-router-dom";
+
+const GuardedRoute = ({ component: Component, auth, ...rest }) => (
+    <Route {...rest} render={(props) => (
+        auth === true
+            ? <Component {...props} />
+            : <Redirect to='/' />
+    )} />
+)
+
+export default GuardedRoute;
+```
+> Now Import this Helper to App
+```js
+<GuardedRoute path='/protected' component={Protected} auth {isAutheticated} />
+```
