@@ -569,3 +569,24 @@ export default GuardedRoute;
 - Refer: https://romik-mk.medium.com/authguard-react-router-v6-764f049e172d
 - Refer: https://blog.netcetera.com/how-to-create-guarded-routes-for-your-react-app-d2fe7c7b6122
 - Refer: https://ui.dev/react-router-protected-routes-authentication
+
+### `useLocation` Hook
+> The useLocation hook returns the location object from the current URL, which includes the following:
+pathname: This is the path of the URL.
+search: This is the query string (?) included in the URL.
+hash: This is the result of the hash fragment (#) from the URL.
+
+```js
+import { useLocation } from "react-router-dom";
+
+const location = useLocation();
+
+console.log(location);
+```
+```sh
+{
+  pathname: ‘/products/school/’, search: ‘?bags’, hash: ‘’, 
+  state: undefined}hash: “”pathname: “/products/school/”
+  search: “?bags”state: undefined“ 
+}
+```
