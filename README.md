@@ -597,6 +597,10 @@ console.log(location);
 - Page
 ![Home](/public/blobs/swagger.png)
 
+> Setup
+```sh
+$ npm install swagger-ui-react swagger-ui
+```
 > Source
 ```js
 import SwaggerUI from 'swagger-ui-react';
