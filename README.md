@@ -568,3 +568,4 @@ export default GuardedRoute;
 ```
 - Refer: https://romik-mk.medium.com/authguard-react-router-v6-764f049e172d
 - Refer: https://blog.netcetera.com/how-to-create-guarded-routes-for-your-react-app-d2fe7c7b6122
+- Refer: https://ui.dev/react-router-protected-routes-authentication
