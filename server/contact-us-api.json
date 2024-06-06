@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contact Us API",
+    "title": "API Archive",
     "description": "API for submitting contact us form data",
     "version": "1.0.0"
   },
