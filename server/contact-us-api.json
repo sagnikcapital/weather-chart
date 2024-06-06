@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Contact Us API",
+    "description": "API for submitting contact us form data",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/contact": {
+      "post": {
+        "summary": "Submit contact form",
+        "description": "API endpoint to submit contact form data",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "contact",
+            "description": "Contact form data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "John Doe"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "john.doe@example.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "123-456-7890"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Hello, I would like to know more about your services."
+                }
+              },
+              "required": ["name", "email", "phone", "message"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Form submitted successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "success"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Thank you for contacting us!"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "error"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Invalid contact form data"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
