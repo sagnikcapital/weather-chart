@@ -591,3 +591,8 @@ console.log(location);
 }
 ```
 - Refer: https://www.educative.io/answers/how-to-use-the-uselocation-hook-in-react
+
+### Swagger Documentation
+- URL: http://localhost:5173/api-docs 
+- Page
+![Home](/public/blobs/swagger.png)
