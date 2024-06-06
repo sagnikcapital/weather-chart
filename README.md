@@ -590,4 +590,4 @@ console.log(location);
   search: “?bags”state: undefined“ 
 }
 ```
-Refer: https://www.educative.io/answers/how-to-use-the-uselocation-hook-in-react
+- Refer: https://www.educative.io/answers/how-to-use-the-uselocation-hook-in-react
